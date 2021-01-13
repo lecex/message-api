@@ -9,7 +9,11 @@ import (
 
 	client "github.com/lecex/core/client"
 
-	"github.com/lecex/user-api/config"
+	"github.com/lecex/message-api/config"
+	configPB "github.com/lecex/message-api/proto/config"
+	messagePB "github.com/lecex/message-api/proto/message"
+	templatePB "github.com/lecex/message-api/proto/template"
+
 	PB "github.com/lecex/user/proto/permission"
 )
 
@@ -17,7 +21,9 @@ var Conf = config.Conf
 
 // Register 注册
 func Register(Server server.Server) {
-
+	configPB.RegisterConfigsHandler(Server, &Config{Conf.Service["message"]})
+	messagePB.RegisterMessageHandler(Server, &Message{Conf.Service["message"]})
+	templatePB.RegisterTemplatesHandler(Server, &Template{Conf.Service["message"]})
 	go Sync() // 同步前端权限
 }
 
