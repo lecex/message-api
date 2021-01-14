@@ -581,7 +581,10 @@ github.com/micro/mdns v0.3.0/go.mod h1:KJ0dW7KmicXU2BV++qkLlmHYcVv7/hHnbtguSWt9A
 github.com/micro/micro v0.20.0/go.mod h1:fkfl/b2vWYkKiUgYW/3uw8OVZTxE/ARw761basyjcBY=
 github.com/micro/micro v0.22.0/go.mod h1:P9n/z0/T/F0h3ywgKACNaRlXQitOQtGrYVfhEzmIvw0=
 github.com/micro/micro v0.22.1/go.mod h1:P9n/z0/T/F0h3ywgKACNaRlXQitOQtGrYVfhEzmIvw0=
+github.com/micro/micro v0.23.2 h1:O5DPhuRhh20xV7pfKDUaD8A2H9UOPh2DRRr4E2ijFZ0=
 github.com/micro/micro v0.23.2/go.mod h1:Fxh8P04RkEdpsiSzlwqVJR7+OHR1/7vo2obwCCQnwAc=
+github.com/micro/micro v1.18.0 h1:v+xiQOXbT9xxotLwu1nJM81t4FbruBxZSSyIdhUfujM=
+github.com/micro/micro/v2 v2.9.3 h1:20tSy6OEFQFcxQpSj+MRWpwtJPzXP1upCX3V9KsG3Wk=
 github.com/micro/protoc-gen-micro v1.0.0/go.mod h1:C8ij4DJhapBmypcT00AXdb0cZ675/3PqUO02buWWqbE=
 github.com/micro/util v0.1.0/go.mod h1:MZgOs0nwxzv9k4xQo4fpF9IwZGF2O96F5/phP9X4/Sw=
 github.com/microcosm-cc/bluemonday v1.0.1/go.mod h1:hsXNsILzKxV+sX77C5b8FSuKF00vh2OMYv+xgHpAMF4=
