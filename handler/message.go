@@ -2,21 +2,22 @@ package handler
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"math/rand"
+	"strconv"
 	"time"
 
-	"github.com/go-redis/redis"
-	client "github.com/lecex/core/client"
 	uuid "github.com/satori/go.uuid"
 
+	client "github.com/lecex/core/client"
 	pb "github.com/lecex/message-api/proto/message"
 	"github.com/lecex/message-api/providers/redis"
 )
 
 // 默认验证码过期时间
-var expireTime time.Duration = 5
+var expireTime int64 = 5
 
 // Message 权限结构
 type Message struct {
@@ -31,27 +32,38 @@ func (srv *Message) SmsVerifySend(ctx context.Context, req *pb.Request, res *pb.
 	if req.Event == "" {
 		return errors.New("Empty Event")
 	}
-	uuid, vrify, err := srv.Verify()
-
+	uuid, vrify, err := srv.Verify(req.Addressee)
+	if err != nil {
+		return err
+	}
 	req.Type = "sms"
-	req.QueryParams = `
-		{
+	req.QueryParams = `{
 			"datas":[
 				"` + vrify + `",
-				"` + string(expireTime) + `"
+				"` + strconv.FormatInt(expireTime, 10) + `"
 			]
-		}
-	`
-	a := uuid
-	return client.Call(ctx, srv.ServiceName, "Message.Send", req, res)
+		}`
+	err = client.Call(ctx, srv.ServiceName, "Message.Send", req, res)
+	if err != nil {
+		return err
+	}
+	res.Uuid = uuid
+	return err
 }
 
 // Verify 生成验证码并保存到 redis
-func (srv *Message) Verify() (key string, vrify string, err error) {
+func (srv *Message) Verify(Addressee string) (key string, vrify string, err error) {
 	key = uuid.NewV4().String()
 	vrify = fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
 	redis := redis.NewClient()
-	// 过期时间默认30分钟
-	err = redis.SetNX(key, vrify, expireTime*time.Minute).Err()
+	data, err := json.Marshal(&map[string]string{
+		"addressee": Addressee,
+		"vrify":     vrify,
+	})
+	if err != nil {
+		return
+	}
+	// 过期时间默认5分钟
+	err = redis.SetNX(key, data, time.Duration(expireTime)*time.Minute).Err()
 	return key, vrify, err
 }

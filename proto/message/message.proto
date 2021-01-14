@@ -23,4 +23,5 @@ message Request {
 message Response {
     bool valid = 1;
     string message = 2;
+    string uuid = 3;
 }
