@@ -34,8 +34,8 @@ var _ server.Option
 // Client API for Message service
 
 type MessageService interface {
-	// 共处理方法
-	Send(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
+	//  手机短信验证码发送
+	SmsVerifySend(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
 }
 
 type messageService struct {
@@ -50,8 +50,8 @@ func NewMessageService(name string, c client.Client) MessageService {
 	}
 }
 
-func (c *messageService) Send(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
-	req := c.c.NewRequest(c.name, "Message.Send", in)
+func (c *messageService) SmsVerifySend(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "Message.SmsVerifySend", in)
 	out := new(Response)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -63,13 +63,13 @@ func (c *messageService) Send(ctx context.Context, in *Request, opts ...client.C
 // Server API for Message service
 
 type MessageHandler interface {
-	// 共处理方法
-	Send(context.Context, *Request, *Response) error
+	//  手机短信验证码发送
+	SmsVerifySend(context.Context, *Request, *Response) error
 }
 
 func RegisterMessageHandler(s server.Server, hdlr MessageHandler, opts ...server.HandlerOption) error {
 	type message interface {
-		Send(ctx context.Context, in *Request, out *Response) error
+		SmsVerifySend(ctx context.Context, in *Request, out *Response) error
 	}
 	type Message struct {
 		message
@@ -82,6 +82,6 @@ type messageHandler struct {
 	MessageHandler
 }
 
-func (h *messageHandler) Send(ctx context.Context, in *Request, out *Response) error {
-	return h.MessageHandler.Send(ctx, in, out)
+func (h *messageHandler) SmsVerifySend(ctx context.Context, in *Request, out *Response) error {
+	return h.MessageHandler.SmsVerifySend(ctx, in, out)
 }

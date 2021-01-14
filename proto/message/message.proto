@@ -4,16 +4,18 @@ syntax = "proto3";
 package message;
 
 service Message {
-    // 共处理方法
-    rpc Send(Request) returns (Response) {}
+    //  手机短信验证码发送
+    rpc SmsVerifySend(Request) returns (Response) {}
 }
 message Request {
     // 手机号 email 微信号 等等消息接收方
     string addressee= 1;
-    // 事件 配套魔板 默认发送方式
+    // 事件 配套魔板 默认发送方式 注册验证码:register_verify
     string event = 2;
+    // api 下面不使用
     // 留空调用模板默认设置 默认实现事件的类型 sms,email,wechat ...
     string type= 3;
+    // api 下面不使用
     // 消息参数 验证码 等魔板参数参数 json
     string queryParams = 4;
 }
