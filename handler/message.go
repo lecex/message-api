@@ -51,7 +51,7 @@ func (srv *Message) SmsVerifySend(ctx context.Context, req *pb.Request, res *pb.
 	return err
 }
 
-// Verify 生成验证码并保存到 redis
+// Verify 生成验证码并保存到 redis 【临时存放 以后邮件使用生成验证码可以使用】
 func (srv *Message) Verify(Addressee string) (key string, vrify string, err error) {
 	key = uuid.NewV4().String()
 	vrify = fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
