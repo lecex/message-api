@@ -24,8 +24,8 @@ type Message struct {
 	ServiceName string
 }
 
-// SmsVerifySend 手机短信验证码发送
-func (srv *Message) SmsVerifySend(ctx context.Context, req *pb.Request, res *pb.Response) (err error) {
+// VerifySend 手机短信验证码发送
+func (srv *Message) VerifySend(ctx context.Context, req *pb.Request, res *pb.Response) (err error) {
 	if req.Addressee == "" {
 		return errors.New("Empty Addressee")
 	}

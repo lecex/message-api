@@ -5,7 +5,7 @@ package message;
 
 service Message {
     //  手机短信验证码发送
-    rpc SmsVerifySend(Request) returns (Response) {}
+    rpc VerifySend(Request) returns (Response) {}
 }
 message Request {
     // 手机号 email 微信号 等等消息接收方
