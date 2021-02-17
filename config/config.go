@@ -26,10 +26,10 @@ var Conf config.Config = config.Config{
 		// 消息发送
 		{Service: "message-api", Method: "Message.Send", Auth: false, Policy: false, Name: "消息发送", Description: "消息短信消息微信消息邮件等发送"},
 		// 模板管理
-		{Service: "message-api", Method: "Template.Create", Auth: true, Policy: true, Name: "创建模板", Description: "创建新模板权限。"},
-		{Service: "message-api", Method: "Template.Delete", Auth: true, Policy: true, Name: "删除模板", Description: "删除模板。"},
-		{Service: "message-api", Method: "Template.Update", Auth: true, Policy: true, Name: "更新模板", Description: "更新模板信息。"},
-		{Service: "message-api", Method: "Template.Get", Auth: true, Policy: true, Name: "查询模板", Description: "查询模板信息权限。"},
-		{Service: "message-api", Method: "Template.List", Auth: true, Policy: true, Name: "模板列表", Description: "查询模板列表"},
+		{Service: "message-api", Method: "Templates.Create", Auth: true, Policy: true, Name: "创建模板", Description: "创建新模板权限。"},
+		{Service: "message-api", Method: "Templates.Delete", Auth: true, Policy: true, Name: "删除模板", Description: "删除模板。"},
+		{Service: "message-api", Method: "Templates.Update", Auth: true, Policy: true, Name: "更新模板", Description: "更新模板信息。"},
+		{Service: "message-api", Method: "Templates.Get", Auth: true, Policy: true, Name: "查询模板", Description: "查询模板信息权限。"},
+		{Service: "message-api", Method: "Templates.List", Auth: true, Policy: true, Name: "模板列表", Description: "查询模板列表"},
 	},
 }
