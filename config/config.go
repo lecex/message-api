@@ -17,7 +17,7 @@ var Conf config.Config = config.Config{
 	Name:    env.Getenv("MICRO_API_NAMESPACE", "go.micro.api.") + "message-api",
 	Version: "latest",
 	Service: map[string]string{
-		"message": env.Getenv("USER_SERVICE", "go.micro.srv.message"),
+		"message": env.Getenv("MESSAGE_SERVICE", "go.micro.srv.message"),
 		"user":    env.Getenv("USER_SERVICE", "go.micro.srv.user"),
 	},
 	Permissions: []*PB.Permission{ // 权限管理
