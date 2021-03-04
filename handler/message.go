@@ -48,11 +48,11 @@ func (srv *Message) VerifySend(ctx context.Context, req *pb.Request, res *pb.Res
 }
 
 // Verify 生成验证码并保存到 redis 【临时存放 以后邮件使用生成验证码可以使用】
-func (srv *Message) Verify(Addressee string) (key string, vrify string, err error) {
-	key = "verify_" + Addressee
+func (srv *Message) Verify(Addressee string) (vrify string, err error) {
+	key := "verify_" + Addressee
 	vrify = fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
 	redis := redis.NewClient()
 	// 过期时间默认5分钟
 	err = redis.SetNX(key, vrify, time.Duration(expireTime)*time.Minute).Err()
-	return key, vrify, err
+	return vrify, err
 }
