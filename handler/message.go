@@ -27,14 +27,13 @@ func (srv *Message) SendCaptcha(ctx context.Context, req *pb.Request, res *pb.Re
 		return errors.New("Empty Addressee")
 	}
 	if req.Event == "" {
-		return errors.New("Empty Event")
+		req.Event = "sms_captcha"
 	}
 	captcha, err := srv.Captcha(req.Addressee)
 	if err != nil {
 		return err
 	}
 	req.Type = "sms"
-	req.Event = "sms_captcha"
 	req.QueryParams = `{
 			"datas":[
 				"` + captcha + `",
