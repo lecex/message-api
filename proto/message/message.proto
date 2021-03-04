@@ -5,12 +5,12 @@ package message;
 
 service Message {
     //  手机短信验证码发送
-    rpc VerifySend(Request) returns (Response) {}
+    rpc SendCaptcha(Request) returns (Response) {}
 }
 message Request {
     // 手机号 email 微信号 等等消息接收方
     string addressee= 1;
-    // 事件 配套魔板 默认发送方式 注册验证码:register_verify
+    // 事件 配套魔板 默认发送方式 注册验证码:sms_captcha
     string event = 2;
     // api 下面不使用
     // 留空调用模板默认设置 默认实现事件的类型 sms,email,wechat ...

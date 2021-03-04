@@ -56,11 +56,11 @@ import (
 func TestSmsMessageSend(t *testing.T) {
 	req := &mesPB.Request{
 		Addressee: "13954386521",
-		Event:     "register_verify",
+		Event:     "sms_captcha",
 	}
 	res := &mesPB.Response{}
 	h := handler.Message{"go.micro.srv.message"}
-	err := h.SmsVerifySend(context.TODO(), req, res)
+	err := h.SendCaptcha(context.TODO(), req, res)
 	fmt.Println(req, res, err)
 	t.Log(req, res, err)
 }

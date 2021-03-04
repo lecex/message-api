@@ -35,7 +35,7 @@ var _ server.Option
 
 type MessageService interface {
 	//  手机短信验证码发送
-	VerifySend(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
+	SendCaptcha(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
 }
 
 type messageService struct {
@@ -50,8 +50,8 @@ func NewMessageService(name string, c client.Client) MessageService {
 	}
 }
 
-func (c *messageService) VerifySend(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
-	req := c.c.NewRequest(c.name, "Message.VerifySend", in)
+func (c *messageService) SendCaptcha(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "Message.SendCaptcha", in)
 	out := new(Response)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -64,12 +64,12 @@ func (c *messageService) VerifySend(ctx context.Context, in *Request, opts ...cl
 
 type MessageHandler interface {
 	//  手机短信验证码发送
-	VerifySend(context.Context, *Request, *Response) error
+	SendCaptcha(context.Context, *Request, *Response) error
 }
 
 func RegisterMessageHandler(s server.Server, hdlr MessageHandler, opts ...server.HandlerOption) error {
 	type message interface {
-		VerifySend(ctx context.Context, in *Request, out *Response) error
+		SendCaptcha(ctx context.Context, in *Request, out *Response) error
 	}
 	type Message struct {
 		message
@@ -82,6 +82,6 @@ type messageHandler struct {
 	MessageHandler
 }
 
-func (h *messageHandler) VerifySend(ctx context.Context, in *Request, out *Response) error {
-	return h.MessageHandler.VerifySend(ctx, in, out)
+func (h *messageHandler) SendCaptcha(ctx context.Context, in *Request, out *Response) error {
+	return h.MessageHandler.SendCaptcha(ctx, in, out)
 }
