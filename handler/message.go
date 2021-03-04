@@ -34,6 +34,7 @@ func (srv *Message) SendCaptcha(ctx context.Context, req *pb.Request, res *pb.Re
 		return err
 	}
 	req.Type = "sms"
+	req.Event = "sms_captcha"
 	req.QueryParams = `{
 			"datas":[
 				"` + captcha + `",

@@ -628,6 +628,8 @@ github.com/lecex/message v0.0.0-20210304025255-242bf68bf285 h1:hgqLZmSNisNV8aABq
 github.com/lecex/message v0.0.0-20210304025255-242bf68bf285/go.mod h1:NR0W/ZrlJNEneK4NKc2m9NL/RlQjeHOju3VXL9HmMFc=
 github.com/lecex/message v0.0.0-20210304025417-f6d722269a20 h1:B8s9Z7YprwVkOelIio5PowgstgvxmbykhDaD+ePGMF0=
 github.com/lecex/message v0.0.0-20210304025417-f6d722269a20/go.mod h1:Yy2+9Y9tdf1+3xBn81msER0Vq0Cmv8smySQlbqNCWKk=
+github.com/lecex/message v0.0.0-20210304070433-e8f0e572ec73 h1:pDXhiNqndGf08Y2VCzHnubvrp1sg0QDNo37sKzLWbjQ=
+github.com/lecex/message v0.0.0-20210304070433-e8f0e572ec73/go.mod h1:Yy2+9Y9tdf1+3xBn81msER0Vq0Cmv8smySQlbqNCWKk=
 github.com/lecex/pay v1.2.9/go.mod h1:D6phEC2SfhQjdkYwK+1MHfBczCi7XwEyiiiOG9uKPwU=
 github.com/lecex/socialite v1.0.36 h1:9PcolW4a6tNc7AUhwYwrlPQnQo4hKJF26EDN4HzlR4Q=
 github.com/lecex/socialite v1.0.36/go.mod h1:4PulbsnnQ5dmPwn8cdwvHqruwabys6QkkCk3Wf7Bg+o=
