@@ -148,6 +148,7 @@ github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+Ce
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
 github.com/bigrocs/alipay v1.0.5/go.mod h1:w1kYCMJjXA2MqF2l/bVBphcGY4DD8ZDLHPuD8IfmUwQ=
+github.com/bigrocs/cloopen v0.0.0-20191023072719-e2c5dafba442/go.mod h1:DQs50dmfkuvyFf74iuKkG24wURvUfNjtBjUTXgRhNP4=
 github.com/bigrocs/wechat v1.0.8/go.mod h1:x3RC61QP799yHh+KpccRtCu488w5LvxGx9pz2rrQY58=
 github.com/bigrocs/wechat v1.0.11 h1:4vygwSlYPvXxHpxtaya+RhYRvmUtPKbnXN/MKAndkkg=
 github.com/bigrocs/wechat v1.0.11/go.mod h1:x3RC61QP799yHh+KpccRtCu488w5LvxGx9pz2rrQY58=
@@ -168,6 +169,8 @@ github.com/bwmarrin/discordgo v0.20.1/go.mod h1:O9S4p+ofTFwB02em7jkpkV8M3R0/PUVO
 github.com/bwmarrin/discordgo v0.20.2/go.mod h1:O9S4p+ofTFwB02em7jkpkV8M3R0/PUVOwN61zSZ0r4Q=
 github.com/bxxinshiji/sql2000 v0.0.0-20210301024319-0c84d851c1a1 h1:rEF1vwJtzTbs0v5+N3iGq84oBYVjkIIGgQBnsI+GH7E=
 github.com/bxxinshiji/sql2000 v0.0.0-20210301024319-0c84d851c1a1/go.mod h1:CI2kG4cev3NStx9DPPK1tEaNJzBSJNuPM6Rh/YuRlYQ=
+github.com/bxxinshiji/sql2000 v0.0.0-20210301233054-802eca0b1828 h1:ku50VhdSD9stKSz9+WBmwknjuWafw/2NAKUQJhlWqr8=
+github.com/bxxinshiji/sql2000 v0.0.0-20210301233054-802eca0b1828/go.mod h1:3xS/m25XkkfWty4KewGa4C7FUWBE2OQwO/JzZJicbcE=
 github.com/bxxinshiji/sql2000-api v0.0.0-20210301024407-b8c64be4ac29 h1:RVdzNC9F39EZlgdM84+P1D3BMKBzdJgZuVQI7+xHzHA=
 github.com/bxxinshiji/sql2000-api v0.0.0-20210301024407-b8c64be4ac29/go.mod h1:QDerQynXeL45a4We8AyEyKop0s5P+/8dJI8i3MS2dXQ=
 github.com/bxxinshiji/sql2000-api v0.0.0-20210302080734-5885e79aa9ac h1:CxHZYHPhnHqEOY/xPRCymK6DPMujvT8fFty8h1wDoIs=
@@ -618,6 +621,8 @@ github.com/lecex/core v1.1.2 h1:ehX1HUdEfkQRag4ELBLyT/HShaQAE0bkiLYkUI4755c=
 github.com/lecex/core v1.1.2/go.mod h1:0997q8CCNlkeJur/hjyVSY2EXgYd4TznkvcFP2f+VTE=
 github.com/lecex/core v1.1.3 h1:5dP93vTTjBLuBAOOVcfNAcolmf60xDqFN951/rusCGs=
 github.com/lecex/core v1.1.3/go.mod h1:DBRXURK3mDNtro4CuPwhTI2wcfJ3fSuk85RChLohBmA=
+github.com/lecex/message v0.0.0-20210304025255-242bf68bf285 h1:hgqLZmSNisNV8aABq1hyn+wbnLPwfFWr+0Es1Zq+n5c=
+github.com/lecex/message v0.0.0-20210304025255-242bf68bf285/go.mod h1:NR0W/ZrlJNEneK4NKc2m9NL/RlQjeHOju3VXL9HmMFc=
 github.com/lecex/pay v1.2.9/go.mod h1:D6phEC2SfhQjdkYwK+1MHfBczCi7XwEyiiiOG9uKPwU=
 github.com/lecex/socialite v1.0.36 h1:9PcolW4a6tNc7AUhwYwrlPQnQo4hKJF26EDN4HzlR4Q=
 github.com/lecex/socialite v1.0.36/go.mod h1:4PulbsnnQ5dmPwn8cdwvHqruwabys6QkkCk3Wf7Bg+o=

@@ -2,14 +2,11 @@ package handler
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"math/rand"
 	"strconv"
 	"time"
-
-	uuid "github.com/satori/go.uuid"
 
 	client "github.com/lecex/core/client"
 	pb "github.com/lecex/message-api/proto/message"
@@ -32,7 +29,7 @@ func (srv *Message) VerifySend(ctx context.Context, req *pb.Request, res *pb.Res
 	if req.Event == "" {
 		return errors.New("Empty Event")
 	}
-	uuid, vrify, err := srv.Verify(req.Addressee)
+	vrify, err := srv.Verify(req.Addressee)
 	if err != nil {
 		return err
 	}
@@ -47,23 +44,15 @@ func (srv *Message) VerifySend(ctx context.Context, req *pb.Request, res *pb.Res
 	if err != nil {
 		return err
 	}
-	res.Uuid = uuid
 	return err
 }
 
 // Verify 生成验证码并保存到 redis 【临时存放 以后邮件使用生成验证码可以使用】
 func (srv *Message) Verify(Addressee string) (key string, vrify string, err error) {
-	key = uuid.NewV4().String()
+	key = "verify_" + Addressee
 	vrify = fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
 	redis := redis.NewClient()
-	data, err := json.Marshal(&map[string]string{
-		"addressee": Addressee,
-		"vrify":     vrify,
-	})
-	if err != nil {
-		return
-	}
 	// 过期时间默认5分钟
-	err = redis.SetNX(key, data, time.Duration(expireTime)*time.Minute).Err()
+	err = redis.SetNX(key, vrify, time.Duration(expireTime)*time.Minute).Err()
 	return key, vrify, err
 }
