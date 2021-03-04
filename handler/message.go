@@ -53,6 +53,6 @@ func (srv *Message) Captcha(Addressee string) (captcha string, err error) {
 	captcha = fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
 	redis := redis.NewClient()
 	// 过期时间默认5分钟
-	err = redis.SetNX(key, captcha, time.Duration(expireTime)*time.Minute).Err()
+	err = redis.Set(key, captcha, time.Duration(expireTime)*time.Minute).Err()
 	return captcha, err
 }
