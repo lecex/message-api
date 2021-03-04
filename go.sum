@@ -635,6 +635,8 @@ github.com/lecex/socialite-api v0.0.0-20210217081117-4fe5ef797f3b h1:OkBdRwf0SzF
 github.com/lecex/socialite-api v0.0.0-20210217081117-4fe5ef797f3b/go.mod h1:fMDawLEnppITOlK0n0KQ4dWNT/UDZFlYlXIPPDm/rDI=
 github.com/lecex/socialite-api v0.0.0-20210302095742-5102d15ee01f h1:RrOrUNJKpNaIHAVidJoH7tIuOyKz7TBr1ewqe1hsv80=
 github.com/lecex/socialite-api v0.0.0-20210302095742-5102d15ee01f/go.mod h1:E7yv/S2rAJ573e3tswGzUbZaJTDJoQzdyfSJLv6rYt0=
+github.com/lecex/socialite-api v0.0.0-20210304065903-25dddd8c0dc9 h1:iV2CqB/yltDqJaaSAXIAT3p4h79mjFDD6yv0b3DkgvY=
+github.com/lecex/socialite-api v0.0.0-20210304065903-25dddd8c0dc9/go.mod h1:Qv58MSwXNzwsIuuzgtEPorh5h78d6YbJ0HOj138v/EQ=
 github.com/lecex/user v1.2.5/go.mod h1:kXhuP0W3MFA+bN9B+0osT+Fq1QHo4OMp2O8G0kiukak=
 github.com/lecex/user v1.2.6/go.mod h1:AkkaQ0GI1z7K/Ybyw01LZ8boXCUs6F9Z/ghy4bZFiak=
 github.com/lecex/user v1.2.12/go.mod h1:GnabENNcpQxgD1dgqVpbm1nGUKgUHt8Ycb9DbKBZLq8=
